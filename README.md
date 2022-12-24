@@ -1,1 +1,1 @@
-# place for something that fun into code *lol
+# place for anything that I learn with Java language
