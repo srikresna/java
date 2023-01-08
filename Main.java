@@ -43,15 +43,17 @@ public class Main {
     //Function for Medicine Menu
     static void medicineMenu() {
         System.out.printf("\n================================");
-        System.out.printf("\n========= Medicine Menu ===========");
-        System.out.printf("1. Add Medicine");
-        System.out.printf("2. View Medicine");
-        System.out.printf("3. Update Medicine");
-        System.out.printf("4. Delete Medicine");
-        System.out.printf("5. Search Medicine");
-        System.out.printf("6. Exit");
+        System.out.printf("\n========= Medicine Menu ===========\n");
+        System.out.printf("1. Add Medicine\n");
+        System.out.printf("2. View Medicine\n");
+        System.out.printf("3. Update Medicine\n");
+        System.out.printf("4. Delete Medicine\n");
+        System.out.printf("5. Search Medicine\n");
+        System.out.printf("6. Exit\n");
         System.out.printf("================================");
         menu = sc.nextInt();
+        sc.nextLine();
+
         switch (menu) {
             case 1:
                 addMedicine();
@@ -119,6 +121,8 @@ public class Main {
         System.out.printf("3. Exit");
         System.out.printf("================================");
         menu = sc.nextInt();
+        sc.nextLine();
+
         switch (menu) {
             case 1:
                 System.out.println("Input Medicine Code : ");
@@ -215,6 +219,8 @@ public class Main {
                             "5. Nothing"
                     );
                     menu = sc.nextInt();
+                    sc.nextLine();
+
                     switch(menu){
                         case 1:
                             System.out.printf("\nInput new item code :");
@@ -294,6 +300,7 @@ public class Main {
         System.out.printf("\n========= Find Medicine Page ===========");
         System.out.print("What do you want to search ? \n1. Item code \n2. Item name \nSelect option 1 - 2 : ");
         menu = sc.nextInt();
+        sc.nextLine();
 
         switch(menu) {
             case 1:
@@ -347,13 +354,15 @@ public class Main {
             System.out.println("\nPLEASE LOGIN TO CONTINUE ACCESS THE PROGRAM \n1. Login \n2. Exit Program");
             System.out.print("Choose menu 1 - 2 : ");
             menu = sc.nextInt();
+            sc.nextLine();
+
             switch (menu) {
                 case 1:
                     mainProcess = true;
                     loginPage();
                     if (validateUser) {
                         System.out.println("\nWELCOME ADMIN!!");
-                        while (menuProcess) {
+                        while (menuProcess = true) {
                             System.out.println("\nMENU \n1. Visit  \n2. Medicine \n3. Doctor \n4. Logout");
                             System.out.print("Choose menu 1 - 4 : ");
                             menu = sc.nextInt();
@@ -361,12 +370,21 @@ public class Main {
                                 case 1:
                                     medicineMenu();
                                     break;
+                                case 4:
+                                    menuProcess = false;
+                                    break;
                                 default:
                                     System.out.println("\t\tInvalid Input Option");
                                     break;
                             }
                         }
+                    } else {
+                       System.out.println("Incorret");
                     }
+                    break;
+                case 2:
+                mainProcess = false;
+                break;
             }
         }
     }
